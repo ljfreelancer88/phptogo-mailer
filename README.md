@@ -1,10 +1,10 @@
-# Very short description of the package
+# PHP to Go Mailer
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ljfreelancer88/daily.svg?style=flat-square)](https://packagist.org/packages/ljfreelancer88/daily)
 [![Total Downloads](https://img.shields.io/packagist/dt/ljfreelancer88/daily.svg?style=flat-square)](https://packagist.org/packages/ljfreelancer88/daily)
 ![GitHub Actions](https://github.com/ljfreelancer88/daily/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Sending bulk email in background from PHP to Go.
 
 ## Installation
 
