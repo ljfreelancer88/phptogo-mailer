@@ -39,7 +39,7 @@ $mailerDir = '/cli/phptogo-mailer'; // Where phptogo-mailer compiled binary live
 $mail = "{$mailerDir}/main"; // Compiled binary
 $log = " >> {$mailerDir} mailer.log 2>&1 &"; // Log it and do the task in background
 
-#2 Pass it to go Go binary
+#2 Pass it to Go binary
 passthru(
     sprintf(
         $mail . " --from %s --subject %s --recipients %s" . $log,
