@@ -31,8 +31,8 @@ $subject = 'John 3:16 song has been added!';
 
 // Fetch rocords from the database.
 $recipients = json_encode([
-  ["Name" => "Jake", "Email" => "lj88@duck.com"], 
-  ["Name" => "Admin", "Email" => "info@collideborate.me"]
+    ["Name" => "Jake", "Email" => "lj88@duck.com"], 
+    ["Name" => "Admin", "Email" => "info@collideborate.me"]
 ]);
 
 $mailerDir = '/cli/phptogo-mailer'; // Where phptogo-mailer compiled binary lives
@@ -41,12 +41,12 @@ $log = " >> {$mailerDir} mailer.log 2>&1 &"; // Log it and do the task in backgr
 
 #2 Pass it to go Go binary
 passthru(
-	sprintf(
-		$mail . " --from %s --subject %s --recipients %s" . $log,
-		escapeshellarg($from), 
-		escapeshellarg($subject),
-		escapeshellarg($recipients)
-	)	
+    sprintf(
+        $mail . " --from %s --subject %s --recipients %s" . $log,
+        escapeshellarg($from), 
+        escapeshellarg($subject),
+        escapeshellarg($recipients)
+    )
 );
 ```
 If you want to do it directly on your terminal and skip PHP.
