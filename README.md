@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ljfreelancer88/phptogo-mailer.svg?style=flat-square)](https://packagist.org/packages/ljfreelancer88/phptogo-mailer)
 ![GitHub Actions](https://github.com/ljfreelancer88/phptogo-mailer/actions/workflows/main.yml/badge.svg)
 
-Sending bulk email in background from PHP to Go. No additional setup like Queuing service.
+Send bulk email in background from PHP to Go. No additional setup like Queuing service.
 
 ## Installation
 
