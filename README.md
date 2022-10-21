@@ -1,29 +1,57 @@
 # PHP to Go Mailer
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ljfreelancer88/daily.svg?style=flat-square)](https://packagist.org/packages/ljfreelancer88/daily)
-[![Total Downloads](https://img.shields.io/packagist/dt/ljfreelancer88/daily.svg?style=flat-square)](https://packagist.org/packages/ljfreelancer88/daily)
-![GitHub Actions](https://github.com/ljfreelancer88/daily/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ljfreelancer88/phptogo-mailer.svg?style=flat-square)](https://packagist.org/packages/ljfreelancer88/phptogo-mailer)
+[![Total Downloads](https://img.shields.io/packagist/dt/ljfreelancer88/phptogo-mailer.svg?style=flat-square)](https://packagist.org/packages/ljfreelancer88/phptogo-mailer)
+![GitHub Actions](https://github.com/ljfreelancer88/phptogo-mailer/actions/workflows/main.yml/badge.svg)
 
-Sending bulk email in background from PHP to Go.
+Sending bulk email in background from PHP to Go. No additional setup like Queuing service.
 
 ## Installation
 
-You can install phptogo using `go get`:
+You can install `phptogo-mailer` using `go get`:
 
 ```bash
 go get -u github.com/ljfreelancer88/phptogo-mailer@latest
-```
-
-## Usage
-
-```go
-import "github.com/ljfreelancer88/phptogo-mailer"
 ```
 
 ### Testing
 
 ```bash
 go test -v
+```
+
+## Usage
+This is just a simple usage. Basically, (1)PHP will just prepare all data needed and (2)pass it to Go binary.
+
+```php
+#1 Prepare all data needed
+
+$from = 'Collideborate Team';
+$subject = 'John 3:16 song has been added!';
+
+// Fetch rocords from the database.
+$recipients = json_encode([
+  ["Name" => "Jake", "Email" => "lj88@duck.com"], 
+  ["Name" => "Admin", "Email" => "info@collideborate.me"]
+]);
+
+$mailerDir = '/cli/phptogo-mailer'; // Where phptogo-mailer compiled binary lives
+$mail = "{$mailerDir}/main"; // Compiled binary
+$log = " >> {$mailerDir} mailer.log 2>&1 &"; // Log it and do the task in background
+
+#2 Pass it to go Go binary
+passthru(
+	sprintf(
+		$mail . " --from %s --subject %s --recipients %s" . $log,
+		escapeshellarg($from), 
+		escapeshellarg($subject),
+		escapeshellarg($recipients)
+	)	
+);
+```
+If you want to do it directly on your terminal and skip PHP.
+```bash
+/cli/phptogo-mailer/main --from "Collideborate Team" --subject "John 3:16 song has been added!" --recipients '[{"Name": "Jake", "Email": "lj88@duck.com"}, {"Name": "Admin", "Email": "info@collideborate.me"}]'
 ```
 
 ### Changelog
